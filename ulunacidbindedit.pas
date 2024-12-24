@@ -255,9 +255,10 @@ end;
 procedure TForm1.Button2Click(Sender: TObject);
 var outText:string;
     add,dr:string;
+    utf8txt:AnsiString;
     i,j,l,lb:integer;
 begin
-  dr:=#13#10;
+  dr:=#10;
   outText:=filePreamble+dr;
   outtext:=outText+dr;
   l:=length(storedBinds);
@@ -267,7 +268,7 @@ begin
     lb:=length(storedBinds[i].bindings);
     for j:=0 to lb-1 do
     begin
-      add:='';
+      add:='|';
       if j<lb-1 then add:='|';
       outText:=outText+storedBinds[i].bindings[j]+add;
     end;
@@ -280,7 +281,8 @@ begin
 
   AssignFile(dataFile,filePath);
   Rewrite(dataFile);
-  Write(dataFile,outText);
+  utf8txt:=UTF8Encode(outText);
+  Write(dataFile,utf8txt);
   CloseFile(dataFile);
 
 end;
