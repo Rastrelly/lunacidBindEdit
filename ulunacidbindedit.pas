@@ -19,14 +19,14 @@ type
   end;
 
   TForm1 = class(TForm)
+    btn_construct: TButton;
     btn_open: TButton;
     btn_parse: TButton;
     btn_add_bind: TButton;
-    btn_construct: TButton;
+    btn_preset_use: TButton;
     Button2: TButton;
     btn_set_bind: TButton;
     btn_delete_bind: TButton;
-    btn_preset_use: TButton;
     ComboBox1: TComboBox;
     ComboBox2: TComboBox;
     edt_bind_code: TEdit;
@@ -46,6 +46,9 @@ type
     Panel1: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
+    Panel4: TPanel;
+    Panel5: TPanel;
+    Panel6: TPanel;
     procedure btn_add_bindClick(Sender: TObject);
     procedure btn_constructClick(Sender: TObject);
     procedure btn_delete_bindClick(Sender: TObject);
@@ -54,6 +57,7 @@ type
     procedure btn_preset_useClick(Sender: TObject);
     procedure btn_set_bindClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure ListBox2SelectionChange(Sender: TObject; User: boolean);
     procedure ListBox3SelectionChange(Sender: TObject; User: boolean);
     procedure redrawBList(var sid:integer);
@@ -285,6 +289,11 @@ begin
   Write(dataFile,utf8txt);
   CloseFile(dataFile);
 
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ComboBox2.Items.LoadFromFile(ExtractFileDir(Application.Exename)+'\bindings_presets.txt');
 end;
 
 procedure TForm1.redrawBList(var sid:integer);

@@ -54,6 +54,7 @@ type
     procedure btn_preset_useClick(Sender: TObject);
     procedure btn_set_bindClick(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure ListBox2SelectionChange(Sender: TObject; User: boolean);
     procedure ListBox3SelectionChange(Sender: TObject; User: boolean);
     procedure redrawBList(var sid:integer);
@@ -285,6 +286,11 @@ begin
   Write(dataFile,utf8txt);
   CloseFile(dataFile);
 
+end;
+
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ComboBox2.Items.LoadFromFile(ExtractFileDir(Application.Exename)+'\bindings_presets.txt');
 end;
 
 procedure TForm1.redrawBList(var sid:integer);
