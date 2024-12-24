@@ -5,4 +5,4 @@ Select sub-binding
 Input key name, select prefix
 Click "Construct"
 Click "Set"
-After all binds are set, click DONE to save
+After all binds are set, click SAVE to save
