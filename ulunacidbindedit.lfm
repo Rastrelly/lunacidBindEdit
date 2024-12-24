@@ -1,30 +1,31 @@
 object Form1: TForm1
   Left = 311
-  Height = 741
+  Height = 635
   Top = 114
-  Width = 1237
+  Width = 1068
   Caption = 'LUNACID Bindings Manager'
-  ClientHeight = 741
-  ClientWidth = 1237
+  ClientHeight = 635
+  ClientWidth = 1068
+  Menu = MainMenu1
   OnCreate = FormCreate
   LCLVersion = '3.2.0.0'
   object GroupBox1: TGroupBox
     Left = 0
     Height = 56
     Top = 0
-    Width = 1237
+    Width = 1068
     Align = alTop
     Caption = 'BINDINGS.TXT'
     ClientHeight = 36
-    ClientWidth = 1233
+    ClientWidth = 1064
     TabOrder = 0
     object btn_open: TButton
-      Left = 1158
+      Left = 989
       Height = 36
       Top = 0
       Width = 75
       Align = alRight
-      Caption = '...'
+      Caption = 'Open'
       TabOrder = 0
       OnClick = btn_openClick
     end
@@ -32,7 +33,7 @@ object Form1: TForm1
       Left = 0
       Height = 36
       Top = 0
-      Width = 1158
+      Width = 989
       Align = alClient
       ReadOnly = True
       TabOrder = 1
@@ -41,34 +42,34 @@ object Form1: TForm1
   object Panel1: TPanel
     Left = 0
     Height = 50
-    Top = 691
-    Width = 1237
+    Top = 585
+    Width = 1068
     Align = alBottom
     ClientHeight = 50
-    ClientWidth = 1237
+    ClientWidth = 1068
     TabOrder = 1
-    object Button2: TButton
-      Left = 1161
+    object btn_done: TButton
+      Left = 992
       Height = 48
       Top = 1
       Width = 75
       Align = alRight
-      Caption = 'Done'
+      Caption = 'SAVE'
       TabOrder = 0
-      OnClick = Button2Click
+      OnClick = btn_doneClick
     end
   end
   object Panel2: TPanel
     Left = 0
     Height = 50
     Top = 56
-    Width = 1237
+    Width = 1068
     Align = alTop
     ClientHeight = 50
-    ClientWidth = 1237
+    ClientWidth = 1068
     TabOrder = 2
     object btn_parse: TButton
-      Left = 1161
+      Left = 992
       Height = 48
       Top = 1
       Width = 75
@@ -87,8 +88,8 @@ object Form1: TForm1
     end
   end
   object ListBox1: TListBox
-    Left = 1008
-    Height = 585
+    Left = 839
+    Height = 479
     Top = 106
     Width = 229
     Align = alRight
@@ -97,26 +98,26 @@ object Form1: TForm1
   end
   object Panel3: TPanel
     Left = 0
-    Height = 585
+    Height = 479
     Top = 106
-    Width = 1008
+    Width = 839
     Align = alClient
-    ClientHeight = 585
-    ClientWidth = 1008
+    ClientHeight = 479
+    ClientWidth = 839
     TabOrder = 4
     object GroupBox2: TGroupBox
       Left = 1
-      Height = 583
+      Height = 477
       Top = 1
-      Width = 1006
+      Width = 837
       Align = alClient
       Caption = 'Binds'
-      ClientHeight = 563
-      ClientWidth = 1002
+      ClientHeight = 457
+      ClientWidth = 833
       TabOrder = 0
       object ListBox2: TListBox
         Left = 0
-        Height = 563
+        Height = 457
         Top = 0
         Width = 200
         Align = alLeft
@@ -126,17 +127,17 @@ object Form1: TForm1
       end
       object GroupBox3: TGroupBox
         Left = 200
-        Height = 563
+        Height = 457
         Top = 0
-        Width = 802
+        Width = 633
         Align = alClient
         Caption = 'Options'
-        ClientHeight = 543
-        ClientWidth = 798
+        ClientHeight = 437
+        ClientWidth = 629
         TabOrder = 1
         object ListBox3: TListBox
           Left = 0
-          Height = 543
+          Height = 437
           Top = 0
           Width = 192
           Align = alLeft
@@ -146,19 +147,19 @@ object Form1: TForm1
         end
         object GroupBox4: TGroupBox
           Left = 192
-          Height = 543
+          Height = 437
           Top = 0
-          Width = 606
+          Width = 437
           Align = alClient
           Caption = 'Edit binding'
-          ClientHeight = 523
-          ClientWidth = 602
+          ClientHeight = 417
+          ClientWidth = 433
           TabOrder = 1
           object btn_add_bind: TButton
             Left = 0
             Height = 25
-            Top = 473
-            Width = 602
+            Top = 367
+            Width = 433
             Align = alBottom
             Caption = 'Add'
             TabOrder = 0
@@ -167,8 +168,8 @@ object Form1: TForm1
           object btn_set_bind: TButton
             Left = 0
             Height = 25
-            Top = 448
-            Width = 602
+            Top = 342
+            Width = 433
             Align = alBottom
             Caption = 'Set'
             TabOrder = 1
@@ -177,8 +178,8 @@ object Form1: TForm1
           object btn_delete_bind: TButton
             Left = 0
             Height = 25
-            Top = 498
-            Width = 602
+            Top = 392
+            Width = 433
             Align = alBottom
             Caption = 'Delete'
             TabOrder = 2
@@ -188,7 +189,7 @@ object Form1: TForm1
             Left = 0
             Height = 15
             Top = 0
-            Width = 602
+            Width = 433
             Align = alTop
             Caption = 'Key code'
           end
@@ -196,25 +197,26 @@ object Form1: TForm1
             Left = 0
             Height = 23
             Top = 15
-            Width = 602
+            Width = 433
             Align = alTop
+            Enabled = False
             ReadOnly = True
             TabOrder = 3
           end
           object Panel4: TPanel
             Left = 0
-            Height = 410
+            Height = 304
             Top = 38
-            Width = 602
+            Width = 433
             Align = alClient
-            ClientHeight = 410
-            ClientWidth = 602
+            ClientHeight = 304
+            ClientWidth = 433
             TabOrder = 4
             object Label2: TLabel
               Left = 1
               Height = 15
               Top = 1
-              Width = 600
+              Width = 431
               Align = alTop
               Caption = 'Key'
             end
@@ -222,10 +224,10 @@ object Form1: TForm1
               Left = 1
               Height = 40
               Top = 16
-              Width = 600
+              Width = 431
               Align = alTop
               ClientHeight = 40
-              ClientWidth = 600
+              ClientWidth = 431
               TabOrder = 0
               object ComboBox1: TComboBox
                 Left = 1
@@ -255,12 +257,12 @@ object Form1: TForm1
                 Left = 216
                 Height = 38
                 Top = 1
-                Width = 308
+                Width = 139
                 Align = alClient
                 TabOrder = 1
               end
               object btn_construct: TButton
-                Left = 524
+                Left = 355
                 Height = 38
                 Top = 1
                 Width = 75
@@ -274,16 +276,16 @@ object Form1: TForm1
               Left = 1
               Height = 50
               Top = 56
-              Width = 600
+              Width = 431
               Align = alTop
               ClientHeight = 50
-              ClientWidth = 600
+              ClientWidth = 431
               TabOrder = 1
               object ComboBox2: TComboBox
                 Left = 1
                 Height = 23
                 Top = 1
-                Width = 523
+                Width = 354
                 Align = alClient
                 ItemHeight = 15
                 ItemIndex = 1
@@ -349,7 +351,7 @@ object Form1: TForm1
                 Text = 'leftButton'
               end
               object btn_preset_use: TButton
-                Left = 524
+                Left = 355
                 Height = 48
                 Top = 1
                 Width = 75
@@ -361,6 +363,15 @@ object Form1: TForm1
                 OnClick = btn_preset_useClick
               end
             end
+            object Label4: TLabel
+              Left = 1
+              Height = 45
+              Top = 106
+              Width = 431
+              Align = alTop
+              Caption = 'Note: you can input any key id into the Key field, or select a preset from the menu and click use. Afterwards press "Construct", then either "Set" or "Add" (adding keys seems to be unrecognized by the game, but who knows)'
+              WordWrap = True
+            end
           end
         end
       end
@@ -369,5 +380,39 @@ object Form1: TForm1
   object OpenDialog1: TOpenDialog
     Left = 968
     Top = 136
+  end
+  object MainMenu1: TMainMenu
+    Left = 1008
+    Top = 136
+    object MenuItem1: TMenuItem
+      Caption = 'File'
+      object MenuItem2: TMenuItem
+        Caption = 'Open'
+        ShortCut = 16463
+        OnClick = MenuItem2Click
+      end
+      object MenuItem5: TMenuItem
+        Caption = 'Save'
+        ShortCut = 16467
+        OnClick = MenuItem5Click
+      end
+      object MenuItem3: TMenuItem
+        Caption = 'Parse'
+        ShortCut = 16464
+        OnClick = MenuItem3Click
+      end
+      object MenuItem4: TMenuItem
+        Caption = 'Close'
+        ShortCut = 32856
+        OnClick = MenuItem4Click
+      end
+    end
+    object MenuItem6: TMenuItem
+      Caption = 'Help'
+      object MenuItem7: TMenuItem
+        Caption = 'About'
+        OnClick = MenuItem7Click
+      end
+    end
   end
 end

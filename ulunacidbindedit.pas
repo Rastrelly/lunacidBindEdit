@@ -5,7 +5,8 @@ unit uLunacidBindEdit;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls,
+  Menus, uAbout;
 
 type
 
@@ -24,7 +25,7 @@ type
     btn_parse: TButton;
     btn_add_bind: TButton;
     btn_preset_use: TButton;
-    Button2: TButton;
+    btn_done: TButton;
     btn_set_bind: TButton;
     btn_delete_bind: TButton;
     ComboBox1: TComboBox;
@@ -39,9 +40,18 @@ type
     Label1: TLabel;
     Label2: TLabel;
     Label3: TLabel;
+    Label4: TLabel;
     ListBox1: TListBox;
     ListBox2: TListBox;
     ListBox3: TListBox;
+    MainMenu1: TMainMenu;
+    MenuItem1: TMenuItem;
+    MenuItem2: TMenuItem;
+    MenuItem3: TMenuItem;
+    MenuItem4: TMenuItem;
+    MenuItem5: TMenuItem;
+    MenuItem6: TMenuItem;
+    MenuItem7: TMenuItem;
     OpenDialog1: TOpenDialog;
     Panel1: TPanel;
     Panel2: TPanel;
@@ -49,6 +59,13 @@ type
     Panel4: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
+    procedure MenuItem2Click(Sender: TObject);
+    procedure MenuItem3Click(Sender: TObject);
+    procedure MenuItem4Click(Sender: TObject);
+    procedure MenuItem5Click(Sender: TObject);
+    procedure MenuItem7Click(Sender: TObject);
+    procedure ReadBindsFile;
+    procedure showFoundBinds;
     procedure btn_add_bindClick(Sender: TObject);
     procedure btn_constructClick(Sender: TObject);
     procedure btn_delete_bindClick(Sender: TObject);
@@ -56,7 +73,7 @@ type
     procedure btn_parseClick(Sender: TObject);
     procedure btn_preset_useClick(Sender: TObject);
     procedure btn_set_bindClick(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
+    procedure btn_doneClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure ListBox2SelectionChange(Sender: TObject; User: boolean);
     procedure ListBox3SelectionChange(Sender: TObject; User: boolean);
@@ -71,6 +88,9 @@ var
   Form1: TForm1;
 
   dataFile:TextFile;
+
+  settingsFile:TextFile;
+
   filePath:string;
   fileText:strArr;
 
@@ -86,9 +106,57 @@ implementation
 
 { TForm1 }
 
-procedure TForm1.btn_openClick(Sender: TObject);
+procedure TForm1.ReadBindsFile;
 var cLine:string;
     i:integer;
+begin
+  AssignFile(dataFile,filePath);
+  Reset(dataFile);
+  while not EOF(dataFile) do
+  begin
+    ReadLn(dataFile,cLine);
+    SetLength(fileText,Length(fileText)+1);
+    fileText[High(fileText)]:=cLine;
+  end;
+  CloseFile(dataFile);
+end;
+
+procedure TForm1.MenuItem2Click(Sender: TObject);
+begin
+  btn_open.Click;
+end;
+
+procedure TForm1.MenuItem3Click(Sender: TObject);
+begin
+  btn_parse.Click;
+end;
+
+procedure TForm1.MenuItem4Click(Sender: TObject);
+begin
+  Form1.Close;
+end;
+
+procedure TForm1.MenuItem5Click(Sender: TObject);
+begin
+  btn_done.Click;
+end;
+
+procedure TForm1.MenuItem7Click(Sender: TObject);
+begin
+  Form2.Show;
+end;
+
+procedure tform1.showFoundBinds;
+var i:integer;
+begin
+  for i:=0 to length(fileText)-1 do
+  begin
+    ListBox1.AddItem(fileText[i],nil);
+  end;
+end;
+
+procedure TForm1.btn_openClick(Sender: TObject);
+var i:integer;
 begin
   if (OpenDialog1.Execute) then
   begin
@@ -99,22 +167,17 @@ begin
     ed_filename.Text:=filePath;
 
     //file ops
-    AssignFile(dataFile,filePath);
-    Reset(dataFile);
-    while not EOF(dataFile) do
-    begin
-      ReadLn(dataFile,cLine);
-      SetLength(fileText,Length(fileText)+1);
-      fileText[High(fileText)]:=cLine;
-    end;
-    CloseFile(dataFile);
+    ReadBindsFile;
 
     //display read data
-    for i:=0 to length(fileText)-1 do
-    begin
-      ListBox1.AddItem(fileText[i],nil);
-    end;
+    ShowFoundBinds;
 
+    //store path
+    AssignFile(settingsFile,ExtractFileDir(Application.Exename)+'\savedPath.txt');
+    Rewrite(settingsFile);
+    WriteLn(settingsFile,filePath);
+    ed_filename.Text:=filePath;
+    CloseFile(settingsFile);
   end;
 
 end;
@@ -256,7 +319,7 @@ begin
   ListBox3.ItemIndex:=selBindId;
 end;
 
-procedure TForm1.Button2Click(Sender: TObject);
+procedure TForm1.btn_doneClick(Sender: TObject);
 var outText:string;
     add,dr:string;
     utf8txt:AnsiString;
@@ -294,6 +357,18 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   ComboBox2.Items.LoadFromFile(ExtractFileDir(Application.Exename)+'\bindings_presets.txt');
+  if (fileexists(ExtractFileDir(Application.Exename)+'\savedPath.txt')) then
+  begin
+    AssignFile(settingsFile,ExtractFileDir(Application.Exename)+'\savedPath.txt');
+    Reset(settingsFile);
+    ReadLn(settingsFile,filePath);
+    ed_filename.Text:=filePath;
+    CloseFile(settingsFile);
+
+    ReadBindsFile;
+
+    showFoundBinds;
+  end;
 end;
 
 procedure TForm1.redrawBList(var sid:integer);
