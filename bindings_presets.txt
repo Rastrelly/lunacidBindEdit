@@ -20,6 +20,12 @@ insert
 end
 delete
 equals
+leftctrl
+rightctrl
+leftshift
+rightshift
+leftalt
+rightalt
 //numpad
 numpad1
 numpad2
