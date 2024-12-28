@@ -198,29 +198,35 @@ end;
 procedure TForm1.btn_delete_bindClick(Sender: TObject);
 var i,maxB,outSid:integer;
 begin
-  maxB:=High(storedBinds[selBind].bindings);
-  if (maxB=selBindId) then SetLength(storedBinds[selBind].bindings,length(storedBinds[selBind].bindings)-1);
-  if (maxB>selBindId) then
+  if (ListBox2.ItemIndex<>-1) and (ListBox3.ItemIndex<>-1) then
   begin
-    for i:=selBindId to maxB-1 do
+    maxB:=High(storedBinds[selBind].bindings);
+    if (maxB=selBindId) then SetLength(storedBinds[selBind].bindings,length(storedBinds[selBind].bindings)-1);
+    if (maxB>selBindId) then
     begin
-      storedBinds[selBind].bindings[i]:=storedBinds[selBind].bindings[i+1];
+      for i:=selBindId to maxB-1 do
+      begin
+        storedBinds[selBind].bindings[i]:=storedBinds[selBind].bindings[i+1];
+      end;
+      SetLength(storedBinds[selBind].bindings,length(storedBinds[selBind].bindings)-1);
     end;
-    SetLength(storedBinds[selBind].bindings,length(storedBinds[selBind].bindings)-1);
+    selBindId:=High(storedBinds[selBind].bindings);
+    redrawBList(outSid);
+    ListBox3.ItemIndex:=selBindId;
   end;
-  selBindId:=High(storedBinds[selBind].bindings);
-  redrawBList(outSid);
-  ListBox3.ItemIndex:=selBindId;
 end;
 
 procedure TForm1.btn_add_bindClick(Sender: TObject);
 var outSid:integer;
 begin
-  SetLength(storedBinds[selBind].bindings,Length(storedBinds[selBind].bindings)+1);
-  storedBinds[selBind].bindings[High(storedBinds[selBind].bindings)]:=edt_bind_code.Text;
-  selBindId:=High(storedBinds[selBind].bindings);
-  redrawBList(outSid);
-  ListBox3.ItemIndex:=selBindId;
+  if (ListBox2.ItemIndex<>-1) then
+  begin
+    SetLength(storedBinds[selBind].bindings,Length(storedBinds[selBind].bindings)+1);
+    storedBinds[selBind].bindings[High(storedBinds[selBind].bindings)]:=edt_bind_code.Text;
+    selBindId:=High(storedBinds[selBind].bindings);
+    redrawBList(outSid);
+    ListBox3.ItemIndex:=selBindId;
+  end;
 end;
 
 
@@ -314,9 +320,12 @@ end;
 procedure TForm1.btn_set_bindClick(Sender: TObject);
 var outSid:integer;
 begin
-  storedBinds[selBind].bindings[selBindId]:=edt_bind_code.Text;
-  redrawBList(outSid);
-  ListBox3.ItemIndex:=selBindId;
+  if (ListBox2.ItemIndex<>-1) and (ListBox3.ItemIndex<>-1) then
+  begin
+    storedBinds[selBind].bindings[selBindId]:=edt_bind_code.Text;
+    redrawBList(outSid);
+    ListBox3.ItemIndex:=selBindId;
+  end;
 end;
 
 procedure TForm1.btn_doneClick(Sender: TObject);
@@ -375,11 +384,15 @@ procedure TForm1.redrawBList(var sid:integer);
 var i,selId:integer;
 begin
   ListBox3.Clear;
-  selId:=ListBox2.ItemIndex;
-  sid:=selId;
-  for i:=0 to length(storedBinds[selId].bindings)-1 do
+  //error safeguard
+  if (ListBox2.ItemIndex<>-1) then
   begin
-    ListBox3.AddItem(storedBinds[selId].bindings[i],nil);
+    selId:=ListBox2.ItemIndex;
+    sid:=selId;
+    for i:=0 to length(storedBinds[selId].bindings)-1 do
+    begin
+      ListBox3.AddItem(storedBinds[selId].bindings[i],nil);
+    end;
   end;
 end;
 
@@ -396,9 +409,12 @@ var selId:integer;
     csym:string;
     tpname:string;
 begin
-  selId:=ListBox3.ItemIndex;
-  selBindId:=selId;
-  edt_bind_code.Text:=ListBox3.Items[selId];
+  if (ListBox2.ItemIndex<>-1) and (ListBox3.ItemIndex<>-1) then
+  begin
+    selId:=ListBox3.ItemIndex;
+    selBindId:=selId;
+    edt_bind_code.Text:=ListBox3.Items[selId];
+  end;
 end;
 
 

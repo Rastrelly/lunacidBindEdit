@@ -1,4 +1,5 @@
 //mouse
+delta
 leftButton
 rightButton
 middleButton
@@ -18,6 +19,7 @@ pagedown
 insert
 end
 delete
+equals
 //numpad
 numpad1
 numpad2
@@ -29,10 +31,13 @@ numpad7
 numpad8
 numpad9
 numpad0
-numpadDel
+numpadPeriod
+numpadDivide
+numpadMultiply
 numpadMinus
 numpadPlus
-numpadreturn
+numpadEnter
+numpadEquals
 //gamepad or joystick
 stick
 rightStick
@@ -41,7 +46,6 @@ rightShoulder
 leftShoulder
 {Primary2DAxis}
 {Hatswitch}
-delta
 position
 dpad
 buttonEast
@@ -49,7 +53,8 @@ buttonNorth
 buttonWest
 buttonSouth
 select
+start
 dpad/up
-spad/left
+dpad/left
 dpad/right
 dpad/down
