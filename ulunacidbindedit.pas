@@ -20,14 +20,13 @@ type
   end;
 
   TForm1 = class(TForm)
+    btn_add_bind: TButton;
     btn_construct: TButton;
+    btn_delete_bind: TButton;
     btn_open: TButton;
     btn_parse: TButton;
-    btn_add_bind: TButton;
-    btn_preset_use: TButton;
     btn_done: TButton;
     btn_set_bind: TButton;
-    btn_delete_bind: TButton;
     ComboBox1: TComboBox;
     ComboBox2: TComboBox;
     edt_bind_code: TEdit;
@@ -59,6 +58,8 @@ type
     Panel4: TPanel;
     Panel5: TPanel;
     Panel6: TPanel;
+    Panel7: TPanel;
+    procedure ComboBox2Change(Sender: TObject);
     procedure MenuItem2Click(Sender: TObject);
     procedure MenuItem3Click(Sender: TObject);
     procedure MenuItem4Click(Sender: TObject);
@@ -124,6 +125,11 @@ end;
 procedure TForm1.MenuItem2Click(Sender: TObject);
 begin
   btn_open.Click;
+end;
+
+procedure TForm1.ComboBox2Change(Sender: TObject);
+begin
+  edt_key.Text:=ComboBox2.Text;
 end;
 
 procedure TForm1.MenuItem3Click(Sender: TObject);
@@ -314,7 +320,7 @@ end;
 
 procedure TForm1.btn_preset_useClick(Sender: TObject);
 begin
-  edt_key.Text:=ComboBox2.Text;
+
 end;
 
 procedure TForm1.btn_set_bindClick(Sender: TObject);

@@ -12,13 +12,14 @@
       <XPManifest>
         <DpiAware Value="True"/>
       </XPManifest>
+      <Icon Value="0"/>
     </General>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="20"/>
+      <BuildNr Value="22"/>
       <StringTable ProductName="LUNACID Bindings Manager" ProductVersion="1"/>
     </VersionInfo>
     <BuildModes>

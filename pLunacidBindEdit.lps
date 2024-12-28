@@ -21,8 +21,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uLunacidBindEdit"/>
         <IsVisibleTab Value="True"/>
-        <TopLine Value="358"/>
-        <CursorPos X="7" Y="396"/>
+        <TopLine Value="164"/>
+        <CursorPos X="3" Y="167"/>
         <UsageCount Value="25"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -51,46 +51,6 @@
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="52" Column="25" TopLine="27"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="97" Column="6" TopLine="71"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="313" Column="37" TopLine="277"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="128" Column="17" TopLine="108"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="130" Column="92" TopLine="111"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="319" Column="31" TopLine="296"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="62" Column="52" TopLine="54"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="329" Column="20" TopLine="315"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="114" Column="51" TopLine="107"/>
-      </Position>
-      <Position>
-        <Filename Value="ulunacidbindedit.pas"/>
-        <Caret Line="132" Column="107" TopLine="109"/>
-      </Position>
       <Position>
         <Filename Value="ulunacidbindedit.pas"/>
         <Caret Line="133" Column="107" TopLine="110"/>
@@ -170,6 +130,46 @@
       <Position>
         <Filename Value="ulunacidbindedit.pas"/>
         <Caret Line="323" Column="3" TopLine="320"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="396" Column="7" TopLine="358"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="397" Column="7" TopLine="359"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="396" Column="7" TopLine="358"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="395" Column="7" TopLine="357"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="394" Column="7" TopLine="356"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="397" Column="7" TopLine="359"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="324" Column="3" TopLine="322"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="133" Column="36" TopLine="131"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="132" Column="36" TopLine="130"/>
+      </Position>
+      <Position>
+        <Filename Value="ulunacidbindedit.pas"/>
+        <Caret Line="312" Column="3" TopLine="309"/>
       </Position>
     </JumpHistory>
     <RunParams>

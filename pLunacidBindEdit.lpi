@@ -19,7 +19,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="21"/>
+      <BuildNr Value="23"/>
       <StringTable ProductName="LUNACID Bindings Manager" ProductVersion="1"/>
     </VersionInfo>
     <BuildModes>
